@@ -12,19 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Update with your settings and save this as .env
+"""Academic_Research: Research advice, related literature finding, research area proposals, web knowledge access."""
 
-# Dataform Configuration
-DATAFORM_REPOSITORY_NAME=your-repo-name
-DATAFORM_WORKSPACE_NAME=your-workspace-name
-
-# Model Configuration
-ROOT_AGENT_MODEL=gemini-2.5-pro
-
-# Set environment variables for Google Generative AI
-GOOGLE_CLOUD_PROJECT=your-project-id
-GOOGLE_CLOUD_LOCATION=us-central1 # This is for Vertex AI, which might be different from Dataform location
-GOOGLE_GENAI_USE_VERTEXAI=1  # Use Vertex AI for Generative AI
-GOOGLE_CLOUD_STORAGE_BUCKET=<YOUR_STORAGE_BUCKET>  # Only required for deployment on Agent Engine
-
-
+from . import agent

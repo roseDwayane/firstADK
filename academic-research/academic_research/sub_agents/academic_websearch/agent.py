@@ -12,14 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .bigquery_tools import *
-from .dataform_tools import *
+"""Academic_websearch_agent for finding research papers using search tools."""
 
-__all__ = [
-    'write_file_to_dataform',
-    'compile_dataform',
-    'get_dataform_execution_logs',
-    'search_files_in_dataform',
-    'read_file_from_dataform',
-    'get_udf_sp_tool',
-]
+from google.adk import Agent
+from google.adk.tools import google_search
+
+from . import prompt
+
+#MODEL = "gemini-2.5-pro"
+MODEL="gemini-2.0-flash"
+
+
+academic_websearch_agent = Agent(
+    model=MODEL,
+    name="academic_websearch_agent",
+    instruction=prompt.ACADEMIC_WEBSEARCH_PROMPT,
+    output_key="recent_citing_papers",
+    tools=[google_search],
+)

@@ -12,16 +12,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Update with your settings and save this as .env
+"""Basic evalualtion for Academic Research"""
 
-# Dataform Configuration
-DATAFORM_REPOSITORY_NAME=your-repo-name
-DATAFORM_WORKSPACE_NAME=your-workspace-name
+import pathlib
 
-# Model Configuration
-ROOT_AGENT_MODEL=gemini-2.5-pro
+import dotenv
+import pytest
+from google.adk.evaluation.agent_evaluator import AgentEvaluator
 
-# Set environment variables for Google Generative AI
-GOOGLE_CLOUD_PROJECT=your-project-id
-GOOGLE_CLOUD_LOCATION=us-central1 # This is for Vertex AI, which might be different from Dataform location
-GOOGLE_GENAI_USE_VERTEXAI=1  # Use Vertex AI for Generative AI
+pytest_plugins = ("pytest_asyncio",)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def load_env():
+    dotenv.load_dotenv()
+
+
+@pytest.mark.asyncio
+async def test_all():
+    """Test the agent's basic ability on a few examples."""
+    await AgentEvaluator.evaluate(
+        "academic_research",
+        str(pathlib.Path(__file__).parent / "data"),
+        num_runs=5,
+    )

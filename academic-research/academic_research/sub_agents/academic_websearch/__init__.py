@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .agent import root_agent
+"""Academic_websearch_agent for finding research papers using search tools."""
 
-__all__ = ["root_agent"]
+from .agent import academic_websearch_agent
