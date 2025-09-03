@@ -101,7 +101,7 @@ print("Libraries imported.")
 
 
 # Gemini API Key (Get from Google AI Studio: https://aistudio.google.com/app/apikey)
-os.environ["GOOGLE_API_KEY"] = "AIzaSyAj-jkh6aRL7Ut4kyoeTWnctlhMelY3GVo" # <--- REPLACE
+os.environ["GOOGLE_API_KEY"] = "YOUR_OPENAI_API_KEY" # <--- REPLACE
 
 # [Optional]
 # OpenAI API Key (Get from OpenAI Platform: https://platform.openai.com/api-keys)
